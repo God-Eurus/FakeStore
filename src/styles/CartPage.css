@@ -1,0 +1,77 @@
+.cart-page h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.cart-items-list {
+  margin-bottom: 2rem;
+  border-top: 1px solid #eee; /* Separator */
+}
+
+/* Style individual CartItem component (see below) */
+
+.cart-summary {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 2px solid #ddd;
+  text-align: right; /* Align total and button to the right */
+}
+
+.cart-total {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.checkout-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 0.8em 1.8em;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.checkout-button:hover:not(:disabled) {
+  background-color: #218838;
+}
+
+.checkout-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.cart-page > p { /* Styling for "Your cart is empty." */
+    text-align: center;
+    font-size: 1.1rem;
+    color: #666;
+    margin-top: 2rem;
+}
+
+/* Checkout Confirmation Popup */
+.checkout-confirmation-popup {
+  position: fixed; /* Fixed position */
+  top: 20px; /* Position from top */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Adjust horizontal centering */
+  background-color: #4CAF50; /* Green background */
+  color: white;
+  padding: 15px 30px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000; /* Ensure it's above other content */
+  font-size: 1.1rem;
+  text-align: center;
+  /* Optional: Add animation */
+  animation: fadeInOut 4s ease-in-out forwards;
+}
+
+/* Simple fade in/out animation */
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translate(-50%, -20px); } /* Start invisible and slightly above */
+  10% { opacity: 1; transform: translate(-50%, 0); }   /* Fade in */
+  90% { opacity: 1; transform: translate(-50%, 0); }   /* Stay visible */
+  100% { opacity: 0; transform: translate(-50%, -20px);} /* Fade out */
+}

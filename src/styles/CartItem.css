@@ -1,0 +1,123 @@
+.cart-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto; /* Image | Details | Actions */
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.cart-item-image {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border: 1px solid #f0f0f0;
+  border-radius: 4px;
+}
+
+.cart-item-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.cart-item-title {
+  font-size: 1rem;
+  font-weight: 600;
+   /* Limit title lines if needed */
+   display: -webkit-box;
+   -webkit-line-clamp: 2;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+   text-overflow: ellipsis;
+}
+
+.cart-item-price {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.cart-item-actions {
+  display: flex;
+  flex-direction: column; /* Stack vertically */
+  align-items: flex-end; /* Align to the right */
+  gap: 0.5rem; /* Space between controls */
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.quantity-control button {
+  background-color: #eee;
+  border: 1px solid #ccc;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.quantity-control span {
+  min-width: 20px; /* Ensure space for quantity */
+  text-align: center;
+  font-weight: 500;
+}
+
+.cart-item-subtotal {
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.remove-item-button {
+  background: none;
+  border: none;
+  color: #dc3545;
+  text-decoration: underline;
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 0.2rem; /* Add some clickable area */
+}
+
+.remove-item-button:hover {
+  color: #a71d2a;
+}
+
+
+/* Mobile Adjustments */
+@media (max-width: 600px) {
+    .cart-item {
+        grid-template-columns: auto 1fr; /* Image | Details+Actions */
+        grid-template-rows: auto auto; /* Allow wrapping */
+        gap: 0.5rem 1rem; /* Row gap | Column gap */
+    }
+    .cart-item-image {
+        grid-row: 1 / 3; /* Image spans both rows */
+        width: 60px;
+        height: 60px;
+    }
+    .cart-item-details {
+        grid-column: 2 / 3; /* Details in second column, first row */
+        grid-row: 1 / 2;
+    }
+    .cart-item-actions {
+         grid-column: 2 / 3; /* Actions in second column, second row */
+         grid-row: 2 / 3;
+         flex-direction: row; /* Actions horizontal on mobile */
+         justify-content: space-between; /* Space out actions */
+         align-items: center;
+         width: 100%; /* Take full width of the column */
+    }
+     .cart-item-subtotal {
+        order: 1; /* Move subtotal before remove button */
+        margin-right: auto; /* Push remove button to the right */
+    }
+     .remove-item-button {
+         order: 2;
+     }
+}

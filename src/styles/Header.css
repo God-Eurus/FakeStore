@@ -1,0 +1,87 @@
+.app-header {
+  background-color: #f8f8f8;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 1rem; /* Add space below header */
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* container styles defined globally */
+}
+
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* Space between links */
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #555;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active { /* Add 'active' class logic if needed with NavLink */
+  color: #007bff;
+}
+
+.cart-link {
+  position: relative;
+  padding-right: 1.5em; /* Make space for the count */
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -5px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 0.1em 0.4em;
+  font-size: 0.8rem;
+  font-weight: bold;
+  min-width: 18px; /* Ensure circle shape for single digit */
+  text-align: center;
+  line-height: 1; /* Adjust vertical alignment */
+}
+
+.logout-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 0.4em 0.8em;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.logout-button:hover {
+  background-color: #c82333;
+}
+
+/* Basic Mobile Styles */
+@media (max-width: 600px) {
+  .navigation {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+  .nav-links {
+      margin-top: 0.5rem;
+      width: 100%;
+      justify-content: space-around; /* Or adjust as needed */
+  }
+   .nav-logo {
+      margin-bottom: 0.5rem;
+  }
+}

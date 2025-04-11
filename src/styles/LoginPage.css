@@ -1,0 +1,99 @@
+/* src/styles/LoginPage.css */
+
+.login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the form horizontally */
+  justify-content: center; /* Center vertically (if needed, depends on container height) */
+  padding: 2rem 1rem; /* Add padding around the content */
+  min-height: 70vh; /* Ensure it takes up reasonable vertical space */
+}
+
+.login-page h2 {
+  margin-bottom: 1.5rem;
+  color: #333;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+.login-form {
+  width: 100%;
+  max-width: 400px; /* Limit the form width */
+  padding: 2rem;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem; /* Space between form groups and button */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.form-group input {
+  /* Assuming global styles set padding, border, etc. */
+  /* You can add specific overrides here if needed */
+  font-size: 1rem;
+  border: 1px solid #ccc; /* Ensure border is visible */
+  padding: 0.6em 0.8em; /* Adjust padding if needed */
+}
+
+.error-message {
+  color: #dc3545; /* Bootstrap's danger color */
+  background-color: #f8d7da; /* Light red background */
+  border: 1px solid #f5c6cb; /* Reddish border */
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  margin-top: 0; /* Reset margin if placed directly in form flow */
+  margin-bottom: 0; /* Reset margin */
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.login-form button[type="submit"] {
+  background-color: #007bff; /* Primary blue */
+  color: white;
+  border: none;
+  padding: 0.75em 1.5em; /* Slightly larger padding */
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 0.5rem; /* Add a little space above the button */
+}
+
+.login-form button[type="submit"]:hover:not(:disabled) {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.login-form button[type="submit"]:disabled {
+  background-color: #6c757d; /* Grey when disabled */
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Basic Responsiveness (optional, form max-width handles a lot) */
+@media (max-width: 480px) {
+  .login-form {
+    padding: 1.5rem;
+    box-shadow: none; /* Remove shadow on small screens */
+    border: none; /* Remove border */
+    background-color: transparent; /* Make background transparent */
+  }
+
+  .login-page h2 {
+     font-size: 1.6rem;
+  }
+}

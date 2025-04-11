@@ -1,0 +1,71 @@
+.product-listing-page h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+    gap: 1.5rem; /* Space between filter groups */
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.filter-group label {
+    font-weight: bold;
+    white-space: nowrap; /* Prevent label wrapping */
+}
+
+.filter-group select,
+.filter-group input[type="text"] {
+    padding: 0.4em 0.6em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    min-width: 150px; /* Give some base width */
+}
+
+
+/* Product Grid - Mobile First */
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* 1 column on mobile */
+  gap: 1rem; /* Space between cards */
+}
+
+/* Tablet and up */
+@media (min-width: 600px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  }
+   .filters {
+       justify-content: center; /* Center filters on larger screens */
+   }
+}
+
+/* Desktop */
+@media (min-width: 900px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  }
+}
+
+/* Larger Desktop */
+@media (min-width: 1200px) {
+  .product-grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+  }
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+  margin-top: 1rem;
+}
