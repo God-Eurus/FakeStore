@@ -1,99 +1,157 @@
 /* src/styles/LoginPage.css */
 
 .login-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Center the form horizontally */
-  justify-content: center; /* Center vertically (if needed, depends on container height) */
-  padding: 2rem 1rem; /* Add padding around the content */
-  min-height: 70vh; /* Ensure it takes up reasonable vertical space */
+  display: flex; /* Enable flexbox */
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+  min-height: 100vh; /* Make container full viewport height */
+  padding: 2rem 1rem; /* Padding around the content */
+  /* Background color should be set globally on body */
 }
 
-.login-page h2 {
+/* Style for an optional logo container */
+.login-logo {
   margin-bottom: 1.5rem;
-  color: #333;
-  font-size: 1.8rem;
+  /* Add styles for your logo image if you add one */
+}
+.login-logo img {
+   max-width: 150px; /* Example size */
+   height: auto;
+}
+
+
+.login-page h2 {
+  margin-bottom: 1.5rem; /* Reduced space slightly */
+  color: #2c3e50;
+  font-size: 1.8rem; /* Slightly smaller title */
+  font-weight: 600;
   text-align: center;
 }
 
 .login-form {
   width: 100%;
-  max-width: 400px; /* Limit the form width */
-  padding: 2rem;
+  max-width: 400px; /* Adjusted max-width */
+  padding: 2.5rem;
   background-color: #ffffff;
   border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); /* Slightly more pronounced shadow */
   display: flex;
   flex-direction: column;
-  gap: 1.25rem; /* Space between form groups and button */
+  gap: 1.5rem;
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
 }
 
 .form-group label {
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-  color: #555;
+  font-weight: 500;
+  color: #374151; /* Darker label for better contrast (Tailwind gray-700) */
   font-size: 0.9rem;
 }
 
 .form-group input {
-  /* Assuming global styles set padding, border, etc. */
-  /* You can add specific overrides here if needed */
   font-size: 1rem;
-  border: 1px solid #ccc; /* Ensure border is visible */
-  padding: 0.6em 0.8em; /* Adjust padding if needed */
+  font-family: inherit; /* Inherit from body */
+  padding: 0.75em 1em;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background-color: #f9fafb;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.form-group input::placeholder {
+  color: #9ca3af;
+  font-size: 0.95rem;
 }
 
 .error-message {
-  color: #dc3545; /* Bootstrap's danger color */
-  background-color: #f8d7da; /* Light red background */
-  border: 1px solid #f5c6cb; /* Reddish border */
-  border-radius: 4px;
-  padding: 0.75rem 1rem;
-  margin-top: 0; /* Reset margin if placed directly in form flow */
-  margin-bottom: 0; /* Reset margin */
+  color: #ef4444;
+  background-color: #fee2e2;
+  border: 1px solid #fca5a5;
+  border-left-width: 4px;
+  border-left-color: #ef4444;
+  border-radius: 6px;
+  padding: 0.8rem 1rem;
   font-size: 0.9rem;
-  text-align: center;
+  text-align: left;
 }
 
+.error-message::before {
+ content: "⚠️ ";
+ margin-right: 0.5em;
+}
+
+
 .login-form button[type="submit"] {
-  background-color: #007bff; /* Primary blue */
+  background-color: #3b82f6;
   color: white;
   border: none;
-  padding: 0.75em 1.5em; /* Slightly larger padding */
-  border-radius: 5px;
+  padding: 0.85em 1.5em;
+  border-radius: 8px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s ease;
-  margin-top: 0.5rem; /* Add a little space above the button */
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  margin-top: 0.5rem;
 }
 
 .login-form button[type="submit"]:hover:not(:disabled) {
-  background-color: #0056b3; /* Darker blue on hover */
+  background-color: #2563eb;
+  transform: translateY(-1px);
 }
+
+.login-form button[type="submit"]:active:not(:disabled) {
+  transform: translateY(0px);
+}
+
 
 .login-form button[type="submit"]:disabled {
-  background-color: #6c757d; /* Grey when disabled */
+  background-color: #9ca3af;
   cursor: not-allowed;
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
-/* Basic Responsiveness (optional, form max-width handles a lot) */
+/* Styles for optional links below the form */
+.login-links {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+.login-links a {
+  color: #3b82f6; /* Use button color for links */
+  text-decoration: none;
+  margin: 0 0.5rem;
+  transition: text-decoration 0.2s ease;
+}
+
+.login-links a:hover {
+  text-decoration: underline;
+}
+
+
 @media (max-width: 480px) {
+  .login-page {
+    padding: 1.5rem 1rem;
+    min-height: 0; /* Allow scrolling on small screens if content overflows */
+    justify-content: flex-start; /* Align to top on mobile */
+  }
   .login-form {
     padding: 1.5rem;
-    box-shadow: none; /* Remove shadow on small screens */
-    border: none; /* Remove border */
-    background-color: transparent; /* Make background transparent */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   }
-
-  .login-page h2 {
-     font-size: 1.6rem;
+   .login-page h2 {
+     font-size: 1.75rem;
   }
 }
